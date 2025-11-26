@@ -1,44 +1,37 @@
-name: Simple Pipeline Demo
+name: Simple Pipeline Demo with Tests
 
 on:
   push:
     branches: [main]
 
 jobs:
-  demo:
+  test-and-deploy:
     runs-on: ubuntu-latest
     
     steps:
       - name: Step 1 - Get Code
         uses: actions/checkout@v2
       
-      - name: Step 2 - Say Hello
-        run: echo "Hello! Pipeline is running!"
-      
-      - name: Step 3 - Setup Python
+      - name: Step 2 - Setup Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.11'
       
-      - name: Step 4 - Check Python Version
-        run: python --version
+      - name: Step 3 - Show What We're Testing
+        run: |
+          echo "=========================================="
+          echo "Running tests for calculator.py"
+          echo "=========================================="
+          cat calculator.py
       
-      - name: Step 5 - Create File
-        run: echo "Pipeline created this!" > demo.txt
+      - name: Step 4 - Run Tests
+        run: python test_calculator.py
       
-      - name: Step 6 - Show File
-        run: cat demo.txt
+      - name: Step 5 - If Tests Pass, Deploy
+        run: |
+          echo "=========================================="
+          echo "Tests passed! Deploying application..."
+          echo "=========================================="
       
-      - name: Step 7 - Finished
-        run: echo "Pipeline completed!"
-```
-
----
-
-### **Commit the File:**
-
-**Scroll down to bottom**
-
-**In "Commit message" box, type:**
-```
-Add simple pipeline demo
+      - name: Step 6 - Deployment Complete
+        run: echo "Application deployed successfully!"
