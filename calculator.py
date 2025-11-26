@@ -8,7 +8,7 @@ def subtract(a, b):
 
 def multiply(a, b):
     """Multiply two numbers"""
-    return a * b * 2  # BUG! Should not multiply by 2!
+    return a * b  # FIXED! Removed the bug
 
 def divide(a, b):
     """Divide two numbers"""
