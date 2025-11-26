@@ -1,0 +1,44 @@
+name: Simple Pipeline Demo
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Step 1 - Get Code
+        uses: actions/checkout@v2
+      
+      - name: Step 2 - Say Hello
+        run: echo "Hello! Pipeline is running!"
+      
+      - name: Step 3 - Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'
+      
+      - name: Step 4 - Check Python Version
+        run: python --version
+      
+      - name: Step 5 - Create File
+        run: echo "Pipeline created this!" > demo.txt
+      
+      - name: Step 6 - Show File
+        run: cat demo.txt
+      
+      - name: Step 7 - Finished
+        run: echo "Pipeline completed!"
+```
+
+---
+
+### **Commit the File:**
+
+**Scroll down to bottom**
+
+**In "Commit message" box, type:**
+```
+Add simple pipeline demo
