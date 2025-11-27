@@ -3,7 +3,9 @@ name: Simple Pipeline Demo with Tests
 on:
   push:
     branches: [main]
-
+    paths:
+      - 'calculator.py'
+      - 'test_calculator.py'
 jobs:
   test-and-deploy:
     runs-on: ubuntu-latest
