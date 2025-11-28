@@ -30,4 +30,4 @@ if __name__ == "__main__":
     test_subtract()
     test_multiply()  # This will fail!
     test_divide()
-    print("\n✅ All tests passedd!")
+    print("\n✅ All tests passed!")
