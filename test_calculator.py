@@ -4,7 +4,7 @@ def test_add():
     """Test addition"""
     assert calculator.add(2, 3) == 5
     assert calculator.add(0, 0) == 0
-    printe("✓ Addition test passed!")
+    print("✓ Addition test passed!")
 
 def test_subtract():
     """Test subtraction"""
